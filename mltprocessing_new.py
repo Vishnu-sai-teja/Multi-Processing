@@ -31,14 +31,22 @@ if __name__ == '__main__' :
         # Way 2 with mutliple processes
 
         secs = [5,4,3,2,1]
-        results = [executor.submit(reference , secs) for secs in secs]
+        # results = [executor.submit(reference , secs) for secs in secs]
+
+        '''
+            Instead of using a loop we can use a map function to map all the values with the function inputs,
+            The output order is same as that of the processes, as we are printing them together once they are finisherd
+        '''
+        results = executor.map(reference , secs)
+        for result in results :
+            print(result)
 
         '''
             In order to get these results we get as_completed , 
             iterator to yield results as the processes are completed
         '''
-        for f in concurrent.futures.as_completed(results) :
-            print(f.result())
+        # for f in concurrent.futures.as_completed(results) :
+        #     print(f.result())
 
 
         finish = time.perf_counter()
