@@ -12,7 +12,7 @@ Some task dont need to be run synchronous , we can run them paralelly
 * Need a lot of computation , crunching the numbers and need a lot of cu compute power
 * 
 
-# IO Bound Tasks
+### IO Bound Tasks
 - No usage for lot of compute power , rather wait for processing for input and output tasks 
 - File system operations and networkign operations
 
